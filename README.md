@@ -1,2 +1,2 @@
 # food-order-app
-our-meals.netlify.app
+[Our Meals App](our-meals.netlify.app)
