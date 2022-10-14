@@ -9,8 +9,9 @@
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
-  padding: 0 10%;
+  padding: 0;
   padding-left: 1%;
+  padding-right: 1%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 10;
   user-select: none;
@@ -21,7 +22,7 @@
   height: 80px;
   border-radius: 70%;
   object-fit: cover;
-  margin-right: 10px;
+  margin-right: 1rem;
   margin-left: 5%;
 }
 
