@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 
 import CartContext from "./cart-context";
 
@@ -59,6 +59,15 @@ const cartReducer = (state, action) => {
     return defaultCartState;
   }
 
+  if (action.type === "REPLACE") {
+    return {
+      items: action.items,
+      totalAmount: action.items.reduce((currentNum, item) => {
+        return currentNum + item.price * item.amount;
+      }, 0),
+    };
+  }
+
   return defaultCartState;
 };
 
@@ -87,6 +96,17 @@ const CartProvider = (props) => {
     removeItem: removeItemFromCartHandler,
     clearCart: clearCartHandler,
   };
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem(defaultCartState);
+    if (storedCart) {
+      dispatchCartAction({ type: "REPLACE", items: JSON.parse(storedCart) });
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(defaultCartState, JSON.stringify(cartState.items));
+  }, [cartState.items]);
 
   return (
     <CartContext.Provider value={cartContext}>
