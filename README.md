@@ -20,5 +20,5 @@ For other usages, such as,
 - For database deployment Firebase Realtime Database used. 
 - For react http request and response, fetch Api used.
 
-Finally, application was deployed on netlify. 
+Finally, application deployed on netlify. 
 [Our Meals App](https://our-meals.netlify.app)
